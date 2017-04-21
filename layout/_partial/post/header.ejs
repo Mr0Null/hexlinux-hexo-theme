@@ -1,0 +1,14 @@
+<div class="post-header main-content-wrap <%= (post.metaAlignment ? 'text-' + post.metaAlignment : 'text-right') %>">
+    <% if (post.link) { %>
+        <h2 itemprop="headline">
+            <a class="link" href="<%- url_for(post.link) %>" target="_blank" itemprop="url">
+                <%= post.title || '(' + __('post.no_title') + ')' %>
+            </a>
+        </h2>
+    <% } else { %>
+        <h2 class="post-title" itemprop="headline">
+            <%= post.title || '(' + __('post.no_title') + ')' %>
+        </h2>
+    <% } %>
+    <%- partial('meta',{classes: ['post-meta']}) %>
+</div>
